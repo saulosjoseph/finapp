@@ -1,0 +1,17 @@
+{
+	"name": "finapp",
+	"version": "1.0.0",
+	"description": "Financial App",
+	"main": "index.js",
+	"scripts": {
+		"start": "node ./src/index.js",
+		"test": "nodemon ./src/index.js"
+	},
+	"repository": "https://github.com/saulosjoseph/finapp.git",
+	"author": "Saulo de sousa Joseph <saulos.joseph@gmail.com>",
+	"license": "MIT",
+	"dependencies": {
+		"node": "^12.5.0",
+    	"nodemon": "^1.19.1"
+	}
+}
