@@ -1,4 +1,4 @@
-exports.teste = function (){
-    return {teste:'teste'}
+exports.teste = function (teste){
+    return {teste: teste}
 }
 
