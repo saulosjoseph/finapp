@@ -1,10 +1,10 @@
 const express = require('express');
-const calculate = require('./routes/calculate');
+const routes = require('./routes');
 
 const app = express();
 
 app.use(express.json());
 
-app.use('/', calculate);
+app.use('/', routes);
 
 app.listen(process.env.PORT);
