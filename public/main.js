@@ -6,7 +6,7 @@ calculate.addEventListener("click", () => teste());
 function teste(){
     const value = total.value;
     fetch('https://gentle-brushlands-96996.herokuapp.com/calculate', {
-        method: "GET",
+        method: "PUT",
         body: {
             total: value
         }
