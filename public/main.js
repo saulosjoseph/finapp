@@ -2,19 +2,21 @@ const total = document.querySelector('#total');
 const calculate = document.querySelector('#calculate');
 
 calculate.addEventListener("click", () => teste());
-
-function teste(){
+async function teste(){
     const value = total.value;
-    fetch('https://gentle-brushlands-96996.herokuapp.com/calculate', {
+    console.log(value);
+    const rawResponse = await fetch('https://gentle-brushlands-96996.herokuapp.com/calculate', {
         method: "PUT",
-        body: {
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
             total: value
-        }
+        })
     })
-    .then(res => {
-        res.json();
-    })
-    .then(res => {
-        console.log(res);
-    })
+    const content = await rawResponse.json();
+    const p = document.createElement('p');
+    p.innerText = `basic: ${content.basic}, education: ${content.education}`;
+    document.body.appendChild(p);
 }
