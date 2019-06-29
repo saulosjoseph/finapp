@@ -14,7 +14,7 @@ function teste(){
     .then(res => {
         res.json();
     })
-    .them(res => {
+    .then(res => {
         console.log(res);
     })
 }
