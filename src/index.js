@@ -1,15 +1,11 @@
-const teste = require('./controller/teste');
 const express = require('express');
+const calculate = require('./routes/calculate');
 const port = 3000;
 
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send(teste.teste());
-})
+app.use(express.json());
 
-app.get('/calculate', (req, res) => {
-    res.send(teste.teste());
-})
+app.use('/', calculate);
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
