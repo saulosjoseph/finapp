@@ -9,11 +9,6 @@ router.use(function(req, res, next) {
     next();
 });
 
-router.use((req, res, next) => {
-    console.log(`Time: ${Date.now()}`);
-    next();
-})
-
 router.get('/', (req, res) => {
     res.sendFile('index.html', { root: './public' });
 });
