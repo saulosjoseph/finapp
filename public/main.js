@@ -1,6 +1,6 @@
 const total = document.querySelector('#total');
 const calculate = document.querySelector('#calculate');
-const container = document.querySelector('#container');
+const container = document.querySelector('#container2');
 
 calculate.addEventListener("click", () => teste());
 async function teste(){
