@@ -8,10 +8,18 @@ router.use((req, res, next) => {
 })
 
 router.get('/', (req, res) => {
-    res.json({ teste: 'teste' })
+    res.sendFile('index.html', { root: './public' });
 });
 
-router.get('/calculate', (req, res) => {
+router.get('/style.css', (req, res) => {
+    res.sendFile('style.css', { root: './public' });
+});
+
+router.get('/main.js', (req, res) => {
+    res.sendFile('main.js', { root: './public' });
+});
+
+router.put('/calculate', (req, res) => {
     res.json(calculate.calculate(req.body))
 });
 
