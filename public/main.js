@@ -1,5 +1,6 @@
 const total = document.querySelector('#total');
 const calculate = document.querySelector('#calculate');
+const container = document.querySelector('#container');
 
 calculate.addEventListener("click", () => teste());
 async function teste(){
@@ -18,5 +19,5 @@ async function teste(){
     const content = await rawResponse.json();
     const p = document.createElement('p');
     p.innerText = `basic: ${content.basic}, education: ${content.education}`;
-    document.body.appendChild(p);
+    container.appendChild(p);
 }
