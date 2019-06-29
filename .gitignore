@@ -1,3 +1,4 @@
 node_modules/
+.vscode
 .sonarlint
 yarn.lock
