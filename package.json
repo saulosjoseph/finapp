@@ -11,7 +11,8 @@
 	"author": "Saulo de sousa Joseph <saulos.joseph@gmail.com>",
 	"license": "MIT",
 	"dependencies": {
+		"express": "^4.17.1",
 		"node": "^12.5.0",
-    	"nodemon": "^1.19.1"
+		"nodemon": "^1.19.1"
 	}
 }
