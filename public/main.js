@@ -12,6 +12,9 @@ function teste(){
         }
     })
     .then(res => {
+        res.json();
+    })
+    .them(res => {
         console.log(res);
     })
 }
