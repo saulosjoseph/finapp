@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"start": "node ./src/index.js",
-		"test": "nodemon ./src/indexDev.js"
+		"test": "nodemon ./src/index.js"
 	},
 	"repository": "https://github.com/saulosjoseph/finapp.git",
 	"author": "Saulo de sousa Joseph <saulos.joseph@gmail.com>",
