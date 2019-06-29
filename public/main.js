@@ -6,7 +6,7 @@ calculate.addEventListener("click", () => teste());
 async function teste(){
     const value = total.value;
     console.log(value);
-    const rawResponse = await fetch('https://gentle-brushlands-96996.herokuapp.com/calculate', {
+    const rawResponse = await fetch('https://f1n4pp.herokuapp.com/calculate', {
         method: "PUT",
         headers: {
             'Accept': 'application/json',
