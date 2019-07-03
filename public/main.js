@@ -5,6 +5,20 @@ const container = document.querySelector('#container2');
 find.addEventListener("click", () => findUser());
 async function findUser(){
     const userName = user.value;
+
+    $.ajax({
+        url: 'https://f1n4pp.herokuapp.com/user',
+        crossDomain: true,
+        type: 'PUT',
+        dataType: 'json',
+        data: JSON.stringify({
+            'name': userName
+        }),
+        success: function(result) {
+            alert(result);
+        }
+    })
+    /*
     const rawResponse = await fetch('https://f1n4pp.herokuapp.com/user', {
         method: "PUT",
         headers: {
@@ -17,7 +31,7 @@ async function findUser(){
     })
     const content = await rawResponse.json();
     console.log(content);
-    /*
+    
     const p = document.createElement('p');
     p.innerText = `basic: ${content.basic}, education: ${content.education}`;
     container.appendChild(p);
