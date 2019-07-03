@@ -3,3 +3,4 @@ node_modules/
 .sonarlint
 yarn.lock
 .env
+yarn-error.log

@@ -12,7 +12,7 @@ async function findUser(){
             'Content-Type': 'application/json'
         },
         body: {
-            name: userName
+            'name': userName
         }
     })
     const content = await rawResponse.json();
