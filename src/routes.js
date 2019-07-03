@@ -1,3 +1,5 @@
+const connection = require('./database/mongooseConnection');
+const User = require('./database/userSchema');
 const express = require('express');
 const router = express.Router();
 const calculate = require('./controller/calculate');
@@ -23,6 +25,23 @@ router.get('/main.js', (req, res) => {
 
 router.put('/calculate', (req, res) => {
     res.json(calculate.calculate(req.body))
+});
+
+router.post('/user', async (req, res) => {
+    const user = {
+        name: req.body.name,
+        total: req.body.total
+    };
+    const newUser = new User(user);
+    const data = await newUser.save();
+    res.send(data);
+});
+
+router.put('/user', async (req, res) => {
+    const data = await User.find({
+        name: req.body.name
+    });
+    res.send(data);
 });
 
 module.exports = router;
