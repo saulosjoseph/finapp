@@ -11,9 +11,9 @@ async function findUser(){
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: {
+        body: JSON.stringify({
             'name': userName
-        }
+        })
     })
     const content = await rawResponse.json();
     console.log(content);
