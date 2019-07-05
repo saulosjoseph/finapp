@@ -9,13 +9,10 @@ async function findUser(){
     $.ajax({
         url: 'https://f1n4pp.herokuapp.com/user',
         crossDomain: true,
-        type: 'PUT',
+        type: 'GET',
         dataType: 'json',
-        data: {
-            'name': userName
-        },
         success: function(result) {
-            alert(result);
+            alert("FOI!");
         }
     })
     /*

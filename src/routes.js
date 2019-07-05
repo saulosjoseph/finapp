@@ -40,12 +40,10 @@ router.post('/user', async (req, res) => {
     
 });
 
-router.put('/user', cors(), async (req, res) => {
+router.get('/user', cors(), async (req, res) => {
     try {
-        const data = await User.find({
-            name: req.body.name
-        });
-        res.json(data);   
+        const data = await User.find();
+        res.send(data);   
     } catch (error) {
         res.send(error);
     }
