@@ -3,13 +3,7 @@ const User = require('./database/userSchema');
 const express = require('express');
 const router = express.Router();
 const calculate = require('./controller/calculate');
-
-router.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
-    next();
-});
+const cors = require('cors');
 
 router.get('/favicon.ico', (req, res) => {
     res.sendFile('favicon.ico', { root: './public' });
@@ -32,20 +26,29 @@ router.put('/calculate', (req, res) => {
 });
 
 router.post('/user', async (req, res) => {
-    const user = {
-        name: req.body.name,
-        total: req.body.total
-    };
-    const newUser = new User(user);
-    const data = await newUser.save();
-    res.send(data);
+    try {
+        const user = {
+            name: req.body.name,
+            total: req.body.total
+        };
+        const newUser = new User(user);
+        const data = await newUser.save();
+        res.json(data);
+    } catch (error) {
+        res.send(error);
+    }
+    
 });
 
-router.put('/user', async (req, res) => {
-    const data = await User.find({
-        name: req.body.name
-    });
-    res.send(data);
+router.put('/user', cors(), async (req, res) => {
+    try {
+        const data = await User.find({
+            name: req.body.name
+        });
+        res.json(data);   
+    } catch (error) {
+        res.send(error);
+    }
 });
 
 module.exports = router;
