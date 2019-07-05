@@ -11,6 +11,10 @@ router.use(function(req, res, next) {
     next();
 });
 
+router.get('/favicon.ico', (req, res) => {
+    res.sendFile('favicon.ico', { root: './public' });
+});
+
 router.get('/', (req, res) => {
     res.sendFile('index.html', { root: './public' });
 });

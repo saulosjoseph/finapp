@@ -11,9 +11,9 @@ async function findUser(){
         crossDomain: true,
         type: 'PUT',
         dataType: 'json',
-        data: JSON.stringify({
+        data: {
             'name': userName
-        }),
+        },
         success: function(result) {
             alert(result);
         }
