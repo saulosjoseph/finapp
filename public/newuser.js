@@ -15,8 +15,8 @@ async function createUser(){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            'name': userId,
-            'pass': userPassword
+            'id': userId,
+            'password': userPassword
         })
     })
     const content = await rawResponse.json();

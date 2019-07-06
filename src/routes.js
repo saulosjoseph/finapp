@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 const calculate = require('./controller/calculate');
 const cors = require('cors');
+const bcrypt = require('bcrypt-nodejs');
 
 router.get('/favicon.ico', (req, res) => {
     res.sendFile('favicon.ico', { root: './public' });
@@ -31,13 +32,14 @@ router.get('/newuser.js', (req, res) => {
 
 router.post('/user', async (req, res) => {
     try {
+        const pass = bcrypt.generateHash(req.body.password);
         const user = {
             id: req.body.id,
-            password: req.body.password
+            password: pass
         };
         const newUser = new User(user);
         const data = await newUser.save();
-        res.json(data);
+        res.send(data);
     } catch (error) {
         res.send(error);
     }
@@ -46,8 +48,9 @@ router.post('/user', async (req, res) => {
 
 router.put('/user', cors(), async (req, res) => {
     try {
-        const data = await User.find();
-        res.json(data);   
+        User.findOne({id: req.body.id}, (error, user) => {
+            res.send(user);
+        }); 
     } catch (error) {
         res.send(error);
     }

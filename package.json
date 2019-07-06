@@ -11,6 +11,7 @@
 	"author": "Saulo de sousa Joseph <saulos.joseph@gmail.com>",
 	"license": "MIT",
 	"dependencies": {
+		"bcrypt-nodejs": "^0.0.3",
 		"body-parser": "^1.19.0",
 		"cors": "^2.8.5",
 		"dotenv": "^8.0.0",
