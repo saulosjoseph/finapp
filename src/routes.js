@@ -32,8 +32,8 @@ router.get('/newuser.js', (req, res) => {
 router.post('/user', async (req, res) => {
     try {
         const user = {
-            name: req.body.name,
-            total: req.body.total
+            id: req.body.id,
+            password: req.body.password
         };
         const newUser = new User(user);
         const data = await newUser.save();

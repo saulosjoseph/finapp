@@ -20,7 +20,7 @@ async function findUser(){
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            'name': userId,
+            'id': userId,
             'pass': userPassword
         })
     })
