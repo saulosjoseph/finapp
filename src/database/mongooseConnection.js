@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const mongoose = require('mongoose');
-const mongoDB = process.env.URI;
+const mongoDB = `mongodb+srv://${process.env.ID}:${process.env.SENHA}@primeiro-meh8g.mongodb.net/test?retryWrites=true&w=majority`
 
 try {
     
