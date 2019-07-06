@@ -13,6 +13,10 @@ router.get('/', (req, res) => {
     res.sendFile('index.html', { root: './public' });
 });
 
+router.get('/newuser', (req, res) => {
+    res.sendFile('newuser.html', { root: './public' });
+});
+
 router.get('/style.css', (req, res) => {
     res.sendFile('style.css', { root: './public' });
 });
@@ -21,8 +25,8 @@ router.get('/main.js', (req, res) => {
     res.sendFile('main.js', { root: './public' });
 });
 
-router.put('/calculate', (req, res) => {
-    res.json(calculate.calculate(req.body))
+router.get('/newuser.js', (req, res) => {
+    res.sendFile('newuser.js', { root: './public' });
 });
 
 router.post('/user', async (req, res) => {
@@ -40,10 +44,10 @@ router.post('/user', async (req, res) => {
     
 });
 
-router.get('/user', cors(), async (req, res) => {
+router.put('/user', cors(), async (req, res) => {
     try {
         const data = await User.find();
-        res.send(data);   
+        res.json(data);   
     } catch (error) {
         res.send(error);
     }

@@ -1,20 +1,15 @@
 const user = document.querySelector('#user');
 const password = document.querySelector('#password');
-const find = document.querySelector('#find');
 const create = document.querySelector('#create');
 const container = document.querySelector('#container2');
 
 create.addEventListener("click", () => createUser());
 function createUser(){
-    location.href = 'https://f1n4pp.herokuapp.com/newuser';
-}
-find.addEventListener("click", () => findUser());
-async function findUser(){
     const userId = user.value;
     const userPassword = password.value;
 
     const rawResponse = await fetch('https://f1n4pp.herokuapp.com/user', {
-        method: "PUT",
+        method: "POST",
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -25,5 +20,5 @@ async function findUser(){
         })
     })
     const content = await rawResponse.json();
-    alert(content);
+    if(content) location.href = 'https://f1n4pp.herokuapp.com/'
 }
