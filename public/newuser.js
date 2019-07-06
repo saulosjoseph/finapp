@@ -4,7 +4,7 @@ const create = document.querySelector('#create');
 const container = document.querySelector('#container2');
 
 create.addEventListener("click", () => createUser());
-function createUser(){
+async function createUser(){
     const userId = user.value;
     const userPassword = password.value;
 
